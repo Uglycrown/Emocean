@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tears & Triumphs</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffeef2;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background-color: #ffcad4;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin: 0;
+    }
+    .cartoon {
+      font-size: 3rem;
+      margin: 20px 0;
+    }
+    .section {
+      padding: 20px;
+    }
+    .cry-counter {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff0f3;
+      border-radius: 10px;
+      max-width: 300px;
+    }
+    button {
+      background-color: #ff85a2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #e56b8d;
+    }
+    .motivation {
+      margin-top: 30px;
+      font-style: italic;
+      background: #fff7fa;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tears & Triumphs</h1>
+    <p>Dedicated to Emocean, Emotional Queen 👑</p>
+  </header>
+
+  <div class="section cartoon">
+    😭 + 📚 = 🎓
+    <p>If crying was a degree, she'd be a PhD already!</p>
+  </div>
+
+  <div class="section cry-counter">
+    <h2>Cry Counter</h2>
+    <p>Total Cry Sessions: <span id="cryCount">0</span></p>
+    <button onclick="increaseCryCount()">I cried today 😢</button>
+  </div>
+
+  <div class="section motivation">
+    <h2>Daily Motivation</h2>
+    <p id="quote">Click the button for a hug in words 💖</p>
+    <button onclick="showQuote()">Show Me Motivation</button>
+  </div>
+
+  <script>
+    let cryCount = localStorage.getItem('cryCount') || 0;
+    document.getElementById('cryCount').innerText = cryCount;
+
+    function increaseCryCount() {
+      cryCount++;
+      localStorage.setItem('cryCount', cryCount);
+      document.getElementById('cryCount').innerText = cryCount;
+    }
+
+    const quotes = [
+      "You're doing better than you think!",
+      "Even Cleopatra cried. And she was a queen.",
+      "Every tear is just your brain watering your soul.",
+      "You've got this, future historian!",
+      "Exams end. Your greatness doesn't."
+    ];
+
+    function showQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').innerText = quotes[randomIndex];
+    }
+  </script>
+</body>
+</html>
